@@ -17,6 +17,7 @@ class CreateTableSeekers extends Migration
             $table->increments('id');
             $table->string('job_title');
             $table->string('applicant_name');
+            $table->string('applicant_email');
             $table->string('applicant_experience');
             $table->timestamps();
         });
