@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableSeekers extends Migration
+class CreateTableSeekerCvs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateTableSeekers extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('seekers')) {
-            Schema::create('seekers', function (Blueprint $table) {
+        if(!Schema::hasTable('seeker_cvs')) {
+            Schema::create('seeker_cvs', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('job_title');
-                $table->string('applicant_name');
-                $table->string('applicant_email');
-                $table->text('applicant_experience');
+                $table->integer('seeker_id')->nullable()->unsigned();
+                $table->string('filepath');
                 $table->timestamps();
             });
         }
@@ -32,6 +30,6 @@ class CreateTableSeekers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seekers');
+        Schema::dropIfExists('seeker_cvs');
     }
 }
